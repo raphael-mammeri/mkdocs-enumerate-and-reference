@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "mkdocs_enumerate_and_reference"
+version = "0.1.0"
+description = "Mkdocs plugin for numbered pages"
+authors = ["Raphael Mammeri <raphael.mammeri@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mkdocs = "^1.5.3"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins] # Optional super table
+
+[tool.poetry.plugins."mkdocs.plugins"]
+"enumerate-and-reference" = "mkdocs_enumerate_and_reference.plugin:EnumerateAndReference"
