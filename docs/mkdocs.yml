@@ -1,4 +1,4 @@
-site_name: Ennumerate and Reference Mkdcos Pluggin
+site_name: Mkdcos Enumerate and Reference Plugin
 repo_url: https://github.com/raphael-mammeri/mkdocs-enumerate-and-reference.git
 repo_name:  raphael-mammeri
 site_author: Raphael Mammeri
@@ -7,6 +7,13 @@ edit_uri: edit/main/docs/
 site_description: This is the site Description
 extra_css:
   - stylesheets/extra.css
+
+plugins:
+  - enumerate-and-reference:
+      number_headings:
+        enabled: false
+        activated: true
+        lowest_level: 2
 
 theme:
   language: en
@@ -37,7 +44,7 @@ theme:
     - header.autohide
     - announce.dismiss
     - navigation.footer
-    #- navigation.indexes (messes the pages numbering)
+    - navigation.indexes (messes the pages numbering)
     - toc.follow
     - navigation.top
     - navigation.tracking
@@ -47,15 +54,16 @@ theme:
     - navigation.prune
     - navigation.instant
     - navigation.instant.progress
+    - content.code.copy
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/raphael-mammeri
+      link: https://github.com/raphael-mammeri/mkdocs-enumerate-and-reference
       name: Ennumerate and Reference
   generator: false
 
 nav:
-  - index.md
+  - getting started.md
 
 
 
@@ -73,7 +81,6 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
-
   # Python Markdown Extensions
   - pymdownx.arithmatex:
       generic: true
