@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "mkdocs-enumerate-and-reference"
-version = "0.1"
-description = "Mkdocs plugin numbering and referencing"
-authors = ["Raphael Mammeri <raphael.mammeri@gmail.com>"]
+version = "0.0.1"
+description = "Mkdocs plugin for numbering and referencing"
+authors = ["Raphaël Mammeri <raphael.mammeri@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 

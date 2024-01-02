@@ -31,6 +31,7 @@ Icon
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 .idea/
+docs/site
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
