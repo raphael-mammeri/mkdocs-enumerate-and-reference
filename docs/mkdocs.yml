@@ -63,6 +63,7 @@ extra:
   generator: false
 
 nav:
+  - Home: index.md
   - getting started.md
 
 
