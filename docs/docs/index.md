@@ -1,1 +1,1 @@
-The plugin documentation
+# The plugin documentation for numbering and referencing
