@@ -72,9 +72,6 @@ class EnumerateAndReference(BasePlugin[PluginConfig]):
         def on_match(m):
             tag_id = m.group(1)
             return f'<a href="{rel_tr(tag_id)}">'
-        new_html = re.sub('<a href="(.+?)">', on_match, html)
-        if page.title == '2.2 - dev':
-            print("hello")
         return re.sub('<a href="(.+?)">', on_match, html)
 
 def read_source(page):
