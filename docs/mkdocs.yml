@@ -40,7 +40,7 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to light mode
   features:
-    #- navigation.tabs
+    - navigation.tabs
     - header.autohide
     - announce.dismiss
     - navigation.footer

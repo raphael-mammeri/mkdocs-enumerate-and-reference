@@ -7,7 +7,6 @@ import re
 from os.path import relpath
 from functools import partial
 
-
 class EnumerateOptions(Config):
     enabled = c.Type(bool, default=True)
     cumulative = c.Type(bool, default=False)
