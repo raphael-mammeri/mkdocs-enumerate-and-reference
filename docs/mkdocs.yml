@@ -10,10 +10,14 @@ extra_css:
 
 plugins:
   - enumerate-and-reference:
+      enumerate:
+        enabled: true
+        cumulative: true
       number_headings:
-        enabled: false
+        enabled: true
         activated: true
         lowest_level: 2
+
 
 theme:
   language: en
@@ -23,7 +27,7 @@ theme:
     view: material/eye
     logo: material/tag-edit
   name: material
-  # custom_dir: overrides
+  #custom_dir: overrides
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -40,7 +44,7 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to light mode
   features:
-    - navigation.tabs
+    #- navigation.tabs
     - header.autohide
     - announce.dismiss
     - navigation.footer
@@ -55,6 +59,7 @@ theme:
     - navigation.instant
     - navigation.instant.progress
     - content.code.copy
+    #- navigation.expand
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -65,6 +70,13 @@ extra:
 nav:
   - Home: index.md
   - getting started.md
+  - demo:
+    - chapter one:
+      - section one: demo/demo.md
+      - section two: demo/demo1.md
+    - chapter two:
+      - section one: demo/demo_bis.md
+      - section two: demo/demo1_bis.md
 
 
 
@@ -90,8 +102,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys

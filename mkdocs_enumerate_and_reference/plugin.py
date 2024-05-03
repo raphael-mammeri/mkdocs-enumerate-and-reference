@@ -35,7 +35,7 @@ class EnumerateAndReference(BasePlugin[PluginConfig]):
             # next line is to prevent reading source twice
             # config.sources.update({page.file.src_path: source})
     
-    def on_page_markdown(self, markdown, page,  **kwargs):
+    def on_page_markdown(self, markdown, page, config  **kwargs):
         if self.config.number_headings.enabled:
             activated, lowest_level = self.get_number_headings_params(page.meta)
             if activated:
@@ -95,3 +95,7 @@ def transform(tags_paths: dict, url: str, tag_id: str):
         return f"{rel_path}/#{tag_id}"
     else:
         return tag_id
+
+if __name__ == "__main__":
+    from mkdocs.commands.serve import serve
+    serve("docs/mkdocs.yml")

@@ -1,8 +1,7 @@
-# The plugin documentation for numbering and referencing
-# MkDocs
+# Mkdocs Plugin for Enhanced Referencing and Enumeration
 
-MkDocs is a static site generator that allows you to create beautiful documentation websites from Markdown files. It is commonly used for creating project documentation, user manuals, and technical guides.
-
-## Getting Started
-
-To get started with MkDocs, you need to have Python installed on your system. You can install MkDocs using pip, the Python package manager:
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mkdocs-enumerate-and-reference)
+![PyPI](https://img.shields.io/pypi/v/mkdocs-enumerate-and-reference)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/mkdocs-enumerate-and-reference)
+![GitHub contributors](https://img.shields.io/github/contributors/raphael-mammeri/mkdocs-enumerate-and-reference)
+![PyPI - License](https://img.shields.io/pypi/l/mkdocs-enumerate-and-reference)

@@ -1,4 +1,12 @@
-
+---
+title: My Document
+summary: A brief description of my document.
+authors:
+    - Waylan Limberg
+    - Tom Christie
+date: 2018-07-10
+some_url: https://example.com
+---
 
 The **Mkdcos Enumerate and Reference Plugin** is a tool designed to enhance your documentation by providing advanced numbering options and simplifying cross-references between pages.
 
