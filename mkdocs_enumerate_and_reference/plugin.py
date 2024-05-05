@@ -35,7 +35,7 @@ class EnumerateAndReference(BasePlugin[PluginConfig]):
             # next line is to prevent reading source twice
             # config.sources.update({page.file.src_path: source})
     
-    def on_page_markdown(self, markdown, page, config  **kwargs):
+    def on_page_markdown(self, markdown, page, config,  **kwargs):
         if self.config.number_headings.enabled:
             activated, lowest_level = self.get_number_headings_params(page.meta)
             if activated:
