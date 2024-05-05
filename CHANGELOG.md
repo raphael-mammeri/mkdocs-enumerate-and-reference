@@ -1,3 +1,9 @@
+## v0.1.1 (2024-05-05)
+
+### Fix
+
+- **EnumerateAndReference**: Correction of a syntax error in signature of function on_page_markdown
+
 ## v0.1.0 (2024-05-03)
 
 ### Fix
