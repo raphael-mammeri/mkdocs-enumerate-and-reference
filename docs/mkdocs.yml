@@ -10,13 +10,10 @@ extra_css:
 
 plugins:
   - enumerate-and-reference:
-      enumerate:
-        enabled: true
-        cumulative: true
-      number_headings:
-        enabled: true
-        activated: true
-        lowest_level: 2
+      enumerate: true
+      cumulative: false
+      number_page_sections: false
+      start_level: 2
 
 
 theme:
@@ -69,7 +66,7 @@ extra:
 
 nav:
   - Home: index.md
-  - getting started.md
+  - Raadme: demo/readme.md
   - demo:
     - chapter one:
       - section one: demo/demo.md

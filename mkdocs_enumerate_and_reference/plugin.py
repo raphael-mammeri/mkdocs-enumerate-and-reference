@@ -7,18 +7,13 @@ import re
 from os.path import relpath
 from functools import partial
 
-class EnumerateOptions(Config):
-    enabled = c.Type(bool, default=True)
-    cumulative = c.Type(bool, default=False)
-
-class NumberHeadingsOptions(Config):
-    enabled = c.Type(bool, default=True)
-    activated = c.Type(bool, default=True)
-    lowest_level = c.Type(int, default=1)
-
 class PluginConfig(Config):
-    enumerate = c.SubConfig(EnumerateOptions)
-    number_headings = c.SubConfig(NumberHeadingsOptions)
+    
+    enumerate = c.Type(bool, default=True)
+    cumulative = c.Type(bool, default=True)
+    number_page_sections = c.Type(bool, default=True)
+    start_level = c.Type(int, default=1)
+    
     reference = c.Type(bool, default=True)
     tags_paths = c.Type(dict, default=dict())
     tagged_adms = c.Type(dict, default=dict())
@@ -26,8 +21,8 @@ class PluginConfig(Config):
 
 class EnumerateAndReference(BasePlugin[PluginConfig]):
     def on_nav(self, nav, **kwargs):
-        if self.config.enumerate.enabled:
-            enumerate_navigation(nav, self.config.enumerate.cumulative)
+        if self.config.enumerate:   
+            enumerate_navigation(nav, self.config.cumulative)
         for page in nav.pages:
             source = read_source(page)
             tag_ids = re.findall(r'@tag\((.+?)\)', source)
@@ -36,10 +31,9 @@ class EnumerateAndReference(BasePlugin[PluginConfig]):
             # config.sources.update({page.file.src_path: source})
     
     def on_page_markdown(self, markdown, page, config,  **kwargs):
-        if self.config.number_headings.enabled:
-            activated, lowest_level = self.get_number_headings_params(page.meta)
-            if activated:
-                markdown = add_section_numbers(markdown, lowest_level=lowest_level)
+        number_page_sections, start_level = self.get_number_headings_params(page.meta)
+        if number_page_sections:
+            markdown = add_section_numbers(markdown, lowest_level=start_level)
 
         cnumber = page.cnumber if hasattr(page, "cnumber") else None
         markdown = refactor_admonitions(markdown, cnumber)
@@ -49,13 +43,16 @@ class EnumerateAndReference(BasePlugin[PluginConfig]):
 
     def get_number_headings_params(self, meta: dict):
         try:
-            headings_params = meta["enumerate-and-reference"]["number_headings"]
-            activated = headings_params.get("activated", self.config.number_headings.activated)
-            lowest_level = headings_params.get("lowest_level", self.config.number_headings.lowest_level)
+            number_page_sections = meta["enumerate-and-reference"]["number_page_sections"]
         except KeyError:
-            activated = self.config.number_headings.activated
-            lowest_level = self.config.number_headings.lowest_level
-        return activated, lowest_level
+            number_page_sections = self.config.number_page_sections
+
+        try:
+            start_level = meta["enumerate-and-reference"]["start_level"]
+        except KeyError:
+            start_level = self.config.start_level
+
+        return number_page_sections, start_level
 
     def on_page_read_source(self, page, **kwargs):
         try:
