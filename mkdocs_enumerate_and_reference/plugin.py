@@ -26,7 +26,7 @@ class EnumerateAndReference(BasePlugin[PluginConfig]):
         for page in nav.pages:
             source = read_source(page)
             tag_ids = re.findall(r'@tag\((.+?)\)', source)
-            self.config.tags_paths.update({k: page.url for k in tag_ids})
+            self.config.tags_paths.update({"#"+k: page.url for k in tag_ids})
             # next line is to prevent reading source twice
             # config.sources.update({page.file.src_path: source})
     
@@ -88,8 +88,8 @@ def transform(tags_paths: dict, url: str, tag_id: str):
     """
     if tag_id in tags_paths:
         rel_path = relpath(tags_paths[tag_id], url)
-        r = f"{rel_path}/#{tag_id}"
-        return f"{rel_path}/#{tag_id}"
+        # r = f"{rel_path}/#{tag_id}"
+        return f"{rel_path}/{tag_id}"
     else:
         return tag_id
 
