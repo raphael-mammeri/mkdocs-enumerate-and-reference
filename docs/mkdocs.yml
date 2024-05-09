@@ -11,7 +11,7 @@ extra_css:
 plugins:
   - enumerate-and-reference:
       enumerate: true
-      cumulative: false
+      cumulative: true
       number_page_sections: false
       start_level: 2
 

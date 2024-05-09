@@ -2,7 +2,7 @@ import re
 
 def cumulative_number(item):
     anc_numbers = []
-    for a in item.ancestors:
+    for a in item.ancestors[::-1]:
         if hasattr(a, "number"):
             anc_numbers.append(a.number)
     anc_numbers.append(item.number)
