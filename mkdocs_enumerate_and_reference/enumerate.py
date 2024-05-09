@@ -14,6 +14,7 @@ def cumulative_number(item):
 def enumerate_navigation(nav, cumulative: bool=True):
     for i, item in enumerate(nav.items):
         item.number = str(i+1)
+        item.cnumber = str(i+1)
         if item.title is not None:
             item.title = ". ".join([item.number, item.title])
         enumerate_children(item, cumulative)

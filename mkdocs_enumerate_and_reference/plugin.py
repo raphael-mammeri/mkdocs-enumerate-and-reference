@@ -13,7 +13,7 @@ class PluginConfig(Config):
     cumulative = c.Type(bool, default=True)
     number_page_sections = c.Type(bool, default=True)
     start_level = c.Type(int, default=1)
-    
+    number_admonitions = c.Choice(('ignore', 'simple', 'cumulative'), default="cumulative")
     reference = c.Type(bool, default=True)
     tags_paths = c.Type(dict, default=dict())
     tagged_adms = c.Type(dict, default=dict())
@@ -34,9 +34,12 @@ class EnumerateAndReference(BasePlugin[PluginConfig]):
         number_page_sections, start_level = self.get_number_headings_params(page.meta)
         if number_page_sections:
             markdown = add_section_numbers(markdown, lowest_level=start_level)
-
-        cnumber = page.cnumber if hasattr(page, "cnumber") else None
-        markdown = refactor_admonitions(markdown, cnumber)
+        if self.config.number_admonitions == "cumulative" and hasattr(page, "cnumber"):
+            cnumber = page.cnumber
+        else:
+            cnumber = None
+        counter = None if self.config.number_admonitions == "ignore" else 1
+        markdown = refactor_admonitions(markdown, cnumber, counter)
         span = r'<span id="\1"></span>'
         markdown = re.sub(r'(?<!-)@tag\((.+?)\)', span, markdown)
         return re.sub(r'-(@tag\(.+?\))', r'\1', markdown)
