@@ -10,10 +10,10 @@ extra_css:
 
 plugins:
   - enumerate-and-reference:
-      enumerate: true
-      cumulative: true
-      number_page_sections: false
-      start_level: 2
+      enumerate_sections: "cumulative"
+      enumerate_markdown: true
+      start_level: 1
+      enumerate_admonitions: "cumulative"
 
 
 theme:
@@ -66,14 +66,13 @@ extra:
 
 nav:
   - Home: index.md
-  - Raadme: demo/readme.md
   - demo:
     - chapter one:
-      - section one: demo/demo.md
-      - section two: demo/demo1.md
+      - section one: demo/section_1.md
+      - section two: demo/section_2.md
     - chapter two:
-      - section one: demo/demo_bis.md
-      - section two: demo/demo1_bis.md
+      - section one: demo/section_3.md
+      - section two: demo/section_4.md
 
 
 
@@ -99,8 +98,7 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_generator: "!!python/name:material.extensions.emoji.to_svg"
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
@@ -116,11 +114,11 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+          format: "!!python/name:pymdownx.superfences.fence_code_format"
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: "!!python/name:materialx.emoji.twemoji"
+      emoji_generator: "!!python/name:materialx.emoji.to_svg"
   - pymdownx.arithmatex:
       generic: true
 
