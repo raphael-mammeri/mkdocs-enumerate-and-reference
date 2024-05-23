@@ -1,0 +1,18 @@
+site_name: Mkdcos Enumerate and Reference Plugin
+repo_url: https://github.com/raphael-mammeri/mkdocs-enumerate-and-reference.git
+repo_name:  raphael-mammeri
+site_author: Raphael Mammeri
+copyright: Copyright &copy; Raphael Mammeri 2024
+
+plugins:
+  - enumerate-and-reference
+
+nav:
+  - Home: index.md
+  - demo:
+    - chapter one:
+      - section one: demo/section_1.md
+      - section two: demo/section_2.md
+    - chapter two:
+      - section one: demo/section_3.md
+      - section two: demo/section_4.md
