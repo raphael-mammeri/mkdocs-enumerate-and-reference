@@ -19,11 +19,12 @@ mkdocs-material = "^9.5.3"
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.28.0"
 commitizen = "^3.25.0"
-pylint = "^3.2.0"
-ruff = "^0.4.4"
 pre-commit = "^3.7.1"
 jupyter = "^1.0.0"
 
+[tool.poetry.group.lint.dependencies]
+pylint = "^3.2.0"
+ruff = "^0.4.4"
 
 [tool.poetry.group.test.dependencies]
 pytest-cov = "^5.0.0"
