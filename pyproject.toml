@@ -29,6 +29,7 @@ ruff = "^0.4.4"
 [tool.poetry.group.test.dependencies]
 pytest-cov = "^5.0.0"
 pytest = "^8.2.0"
+click = "^8.1.7"
 
 [tool.pylint]
 disable = [
