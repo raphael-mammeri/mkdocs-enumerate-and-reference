@@ -1,9 +1,10 @@
 
-
-
 .ipynb_checkpoints
 drafts/
 .env
+.vscode/
+*_cache/
+notebooks/
 
 ### OSX ###
 # General

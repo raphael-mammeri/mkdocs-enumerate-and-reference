@@ -12,13 +12,60 @@ mkdocs = "^1.5.3"
 
 
 [tool.poetry.group.docs.dependencies]
-mkdocs = "^1.5.3"
 mkdocs-material = "^9.5.3"
 
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.28.0"
 commitizen = "^3.25.0"
+pre-commit = "^3.7.1"
+jupyter = "^1.0.0"
+
+[tool.poetry.group.lint.dependencies]
+pylint = "^3.2.0"
+ruff = "^0.4.4"
+
+[tool.poetry.group.test.dependencies]
+pytest-cov = "^5.0.0"
+pytest = "^8.2.0"
+click = "^8.1.7"
+
+[tool.pylint]
+disable = [
+    "missing-function-docstring",
+]
+[tool.pylint.FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=80
+
+
+# Allow the body of an if to be on the same line as the test if there is no
+# else.
+single-line-if-stmt="no"
+
+# Maximum number of lines in a module
+max-module-lines=2000
+
+# String used as indentation unit. This is usually " " (4 spaces) or "\t" (1
+# tab).
+indent-string='    '
+
+# Number of spaces of indent required inside a hanging or continued line.
+indent-after-paren=4
+
+[tool.ruff]
+line-length = 80
+indent-width = 4
+
+[tool.ruff.lint]
+# extend-select = ["E501"]
+select = ["ALL"]
+ignore = ["ANN", "D"] # for the moment ignore annotation and docstrings checks
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"] # to enable asserts
+"mkdocs_enumerate_and_reference/plugin.py" = ["ARG002"] # unused params in plugin events
+"mkdocs_enumerate_and_reference/reference.py" = ["PLW0603"] # using global statement
 
 
 [tool.commitizen]
@@ -28,6 +75,7 @@ version_scheme = "pep440"
 version_provider = "poetry"
 update_changelog_on_bump = true
 major_version_zero = true
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
