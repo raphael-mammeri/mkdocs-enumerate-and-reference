@@ -1,3 +1,24 @@
+## v0.2.0 (2024-05-24)
+
+### BREAKING CHANGE
+
+- change plugin parameters name
+- change of the parameters names of the plugin
+
+### Feat
+
+- **reference.py-pluign.py-enumerate.py**: add parameter to set type of admonitions numbering : simple, cumulative or ignore
+
+### Fix
+
+- **plugin.py**: fix bug in cross referencing
+- **enumerate.py**: fix bug in cumulative numbering order
+
+### Refactor
+
+- **enumerate.py-plugin.py-reference.py**: change of plugin parameters and code quality improvement
+- **plugin.py**: refactor plugin parameters names
+
 ## v0.1.1 (2024-05-05)
 
 ### Fix

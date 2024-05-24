@@ -3,6 +3,7 @@
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/mkdocs-enumerate-and-reference)
 ![GitHub contributors](https://img.shields.io/github/contributors/raphael-mammeri/mkdocs-enumerate-and-reference)
 ![PyPI - License](https://img.shields.io/pypi/l/mkdocs-enumerate-and-reference)
+![](https://github.com/raphael-mammeri/mkdocs-enumerate-and-reference/actions/workflows/tests.yml/badge.svg)
 
 # Mkdocs Plugin for Enhanced Referencing and Enumeration
 An [Mkdocs](https://www.mkdocs.org) plugin for referencing within documentation, section numbering, and page heading numbering.
